@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+		<style>
+			input, select {
+				padding: 5px 10px;
+				font-size: 12px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			var left;
+			var right;
+			var op;
+			var calcule;
+
+			$(document).ready(function(){
+				left = $('#left');
+				right = $('#right');
+				op = $('#op');
+				calcule = $('#calcule');
+				calcule.submit(submit);
+				setInterval("alert('Please, use me...')", 30000);
+			});
+			function submit(event)
+			{
+				event.preventDefault();
+				var r_input = Number(right.val());
+				var l_input = Number(left.val());
+				if (l_input !== parseInt(left.val(), 10) || left.val() < 0 || r_input !== parseInt(right.val(), 10) || right.val() < 0) {
+					alert("Error :(");
+					return false;
+				}
+				var opr = op.val();
+				if (opr === 'add')
+				result(l_input + r_input);
+				else if (opr === 'mul')
+				result(l_input * r_input);
+				else if (opr ==='div')
+				{
+					if (r_input === 0)
+					result("It’s over 9000!");
+					else
+					result(l_input / r_input);
+				}
+				else if (opr === 'mod')
+				{
+					if (r_input === 0)
+					result("It’s over 9000!");
+					else
+					result(l_input / r_input);
+				}
+				else if (opr ==='min')
+				result(l_input - r_input);
+				else
+				result("operation not found");
+			}
+			function result(str) {
+				console.log(str);
+				alert(str);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Calculatrice</h1>
+		<form id="calcule">
+			<input type="text" id="left">
+			<select id="op">
+				<option value="add">+</option>
+				<option value="min">-</option>
+				<option value="mul">*</option>
+				<option value="div">/</option>
+				<option value="mod">%</option>
+			</select>
+			<input type="text" id="right">
+			<input type="submit" id="submit" value="Try me!">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+<- Vertex ----------------------------------------------------------------------
+Un vertex (ou encore "sommet") est la plus petite entité graphique que vous pouvez manipuler. En bref, c'est un point graphique .
+
+The Vertex Class handles 3D vertexes.
+there is 'x', 'y', and 'z' as private attribute to construct the instance of Vertex.
+new Vertex( array('x' => 0.1, 'y' => 2.1, 'z' => 1.2) );
+
+We use also two optional parameters 'w' for the homehenous and 'color' is the instance of Color class of ex00.
+the default value for w = 1.0 and for color 255, 255, 255 (white)
+
+This class don't provides methods and all the parameter are private you need to use getParameter and setParameter.
+---------------------------------------------------------------------- Vertex ->

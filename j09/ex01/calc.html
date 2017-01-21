@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			input, select {
+				padding: 5px 10px;
+				font-size: 12px;
+				text-align: center;
+			}
+		</style>
+		<script>
+			var left;
+			var right;
+			var op;
+			var calcule;
+
+			window.onload = function ()
+			{
+				setInterval("alert('Please, use me...')", 30000);
+				left = document.querySelector("#left");
+				right = document.querySelector("#right");
+				op = document.querySelector("#op");
+				calcule = document.querySelector("#calcule");
+				calcule.addEventListener("submit", submit);
+			}
+			function submit(event)
+			{
+				event.preventDefault();
+				var r_input = Number(right.value);
+				var l_input = Number(left.value);
+				if (l_input !== parseInt(left.value, 10) || left.value < 0 || r_input !== parseInt(right.value, 10) || right.value < 0) {
+					alert("Error :(");
+					return false;
+				}
+				if (op.value === 'add')
+				result(l_input + r_input);
+				else if (op.value === 'mul')
+				result(l_input * r_input);
+				else if (op.value ==='div')
+				{
+					if (r_input === 0)
+					result("It’s over 9000!");
+					else
+					result(l_input / r_input);
+				}
+				else if (op.value === 'mod')
+				{
+					if (r_input === 0)
+					result("It’s over 9000!");
+					else
+					result(l_input / r_input);
+				}
+				else if (op.value ==='min')
+				result(l_input - r_input);
+				else
+				result("operation not found");
+			}
+			function result(str) {
+				console.log(str);
+				alert(str);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Calculatrice</h1>
+		<form id="calcule">
+			<input type="text" id="left">
+			<select id="op">
+				<option value="add">+</option>
+				<option value="min">-</option>
+				<option value="mul">*</option>
+				<option value="div">/</option>
+				<option value="mod">%</option>
+			</select>
+			<input type="text" id="right">
+			<input type="submit" id="submit" value="Try me!">
+		</form>
+	</body>
+</html>

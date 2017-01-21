@@ -1,0 +1,29 @@
+ul {
+    background-color:#ba1414;
+	color: #ffffff;
+    width: 100px;
+    padding: 0px;
+    float: left;
+}
+ul li{
+    display: none;
+    padding: 10px 10px 10px 20px;
+}
+ul li:first-child{
+    display: block;
+    border-top: 0px;
+    padding-left: 10px;
+}
+ul:hover li{
+    display: block;
+}
+li:focus, li:hover{
+	background-color: #8e0f0f;
+}
+ul.menu:hover li:first-child{
+    background-color: #8e0f0f;
+}
+a, a:hover, a:visited, a:focus{
+    color: inherit;
+    text-decoration: none;
+}
